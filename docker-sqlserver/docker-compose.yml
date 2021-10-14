@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+
+  sql-server-db:
+    container_name: sql-server-db
+    restart: always
+    hostname: mssql
+    image: "mcr.microsoft.com/mssql/server:2017-latest"
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: noname9xnd
+      ACCEPT_EULA: Y
+    volumes:
+      - mssqlvolume:/var/opt/mssql/data
+volumes:
+    mssqlvolume:
